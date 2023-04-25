@@ -81,12 +81,6 @@
 
 											<div style="clear:both"></div>
 
-											<div class="form-group col-md-6">
-												<label class="control-label col-md-4">Departamento</label>
-												<div class="col-md-8">
-													<select name="id_departamento" id="slc_departamento" class="form-control select2"></select>
-												</div>
-											</div>
 
 											<div class="form-group col-md-6">
 												<label class="control-label col-md-4">Perfil</label>
@@ -125,7 +119,7 @@
 <script src="/js/administracion/usuarios/init.js"></script>
 <script>
 	//En las vistas solo se llaman las funciones del archivo init
-	dao.getDepartamentos("");
-	dao.getPerfil("");
+/* 	dao.getDepartamentos("");
+ */	dao.getPerfil("");
 	init.validateCreate($('#frm_create'));
 </script>

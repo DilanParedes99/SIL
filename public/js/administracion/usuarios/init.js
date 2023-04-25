@@ -7,13 +7,13 @@ var dao = {
 		}).done(function(_data){
 			_table = $("#tbl-usuarios");
 			_columns = [
-				{"aTargets" : [0], "mData" : "nombre_departamento"},
-				{"aTargets" : [1], "mData" : "username"},
-				{"aTargets" : [2], "mData" : "email"},
-				{"aTargets" : [3], "mData" : "nombre_completo"},
-				{"aTargets" : [4], "mData" : "celular"},
-				{"aTargets" : [5], "mData" : "perfil"},
-				{"aTargets" : [6], "mData" : function(o){
+/* 				{"aTargets" : [0], "mData" : "nombre_departamento"},
+ */				{"aTargets" : [0], "mData" : "username"},
+				{"aTargets" : [1], "mData" : "email"},
+				{"aTargets" : [2], "mData" : "nombre_completo"},
+				{"aTargets" : [3], "mData" : "celular"},
+				{"aTargets" : [4], "mData" : "perfil"},
+				{"aTargets" : [5], "mData" : function(o){
 					var adm = '';
 					if (o.estatus == 1) {
 						adm = '<span class="label label-success">Activo</span>';
@@ -22,7 +22,7 @@ var dao = {
 					}
 					return adm;
 				}},
-				{"aTargets" : [7], "mData" : function(o){
+				{"aTargets" : [6], "mData" : function(o){
 					return '<a data-toggle="tooltip" title="Modificar Usuario" class="btn btn-sm btn-success" href="#/adm-usuarios/update/'+o.id+'">' + '<i class="glyphicon glyphicon-pencil"></i></a>&nbsp;'
 					  +'<a data-toggle="tooltip" title="Inhabilitar/Habilitar Usuario" class="btn btn-sm btn-warning" onclick="dao.setStatus(' + o.id + ', ' + o.estatus + ')">' + '<i class="glyphicon glyphicon-lock"></i></a>&nbsp;'
 					  +'<a data-toggle="tooltip" title="Eliminar Usuario" class="btn btn-sm btn-danger" onclick="dao.eliminarUsuario(' + o.id + ')">' + '<i class="glyphicon glyphicon-trash"></i></a>&nbsp;';
@@ -77,7 +77,7 @@ var dao = {
 		});
 	},
 
-
+/* 
 	getDepartamentos : function(id){
         $.ajax({
           type : "GET",
@@ -92,7 +92,7 @@ var dao = {
           });
           par.select2().select2("val", id);
         });
-    },
+    }, */
 
     getPerfil : function(id){
         $.ajax({
@@ -164,8 +164,8 @@ var dao = {
     	$('#in_s_apellido').val('');
     	$('#in_email').val('');
     	$('#in_celular').val('');
-    	dao.getDepartamentos("");
-    	dao.getPerfil("");
+/*     	dao.getDepartamentos("");
+ */    	dao.getPerfil("");
     },
 
     guardarGrupo: function(grupos, id) {

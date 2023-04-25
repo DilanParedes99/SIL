@@ -25,7 +25,6 @@
 							<table id="tbl-usuarios" class="table table-hover table-striped">
 								<thead>
 									<tr>
-										<th data-class="expand">Departamento</th>
 										<th data-hide="phone">Nombre Usuario</th>
 										<th data-hide="phone">Correo</th>
 										<th data-hide="phone">Nombre Completo</th>

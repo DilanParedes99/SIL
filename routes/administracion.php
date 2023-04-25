@@ -14,8 +14,8 @@
 		Route::get('/adm-usuarios/data/{id?}', 'getData');
 		Route::post('/adm-usuarios/status', 'postStatus');
 		Route::get('/adm-usuarios/create', 'getCreate');
-		Route::get('/adm-usuarios/selectdep', 'getDepartamentos');
-		Route::post('/adm-usuarios/store', 'postStore');
+/* 		Route::get('/adm-usuarios/selectdep', 'getDepartamentos');
+ */		Route::post('/adm-usuarios/store', 'postStore');
 		Route::get('/adm-usuarios/update/{id?}', 'getUpdate');
 		Route::post('/adm-usuarios/put-usuario', 'postUpdate');
 		Route::get('/adm-usuarios/grupos/{idUsuario?}', 'getGrupos');
