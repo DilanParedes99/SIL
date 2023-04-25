@@ -112,12 +112,12 @@
 <script src="/js/administracion/usuarios/init.js"></script>
 <script>
 	//En las vistas solo se llaman las funciones del archivo init
-	var idDepartamento = "{{$user->id_departamento}}";
+/* 	var idDepartamento = "{{$user->id_departamento}}";
 	if (idDepartamento != null || idDepartamento != '') {
 		dao.getDepartamentos(idDepartamento);
 	}else {
 		dao.getDepartamentos("");
-	}
+	} */
 
 	var idPerfil = "{{$user->id_grupo}}";
 	if (idPerfil != 'null' || idPerfil != null ) {

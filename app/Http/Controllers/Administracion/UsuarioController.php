@@ -9,7 +9,6 @@ use Datatables;
 use App\Models\User;
 use Auth;
 use DB;
-use App\Models\catalogos\CatDepartamentos;
 use App\Models\administracion\UsuarioGrupo;
 
 class UsuarioController extends Controller
@@ -37,8 +36,7 @@ class UsuarioController extends Controller
 	public function getData($id = 0){
 		Controller::check_permission('getUsuarios', false);
 		$query = DB::table('adm_users')
-				->select('adm_users.id', 'adm_users.username', 'adm_users.email', 'adm_users.estatus', DB::raw('ifnull(cat_departamentos.nombre_departamento, "Sin Departamento") as nombre_departamento'), DB::raw('CONCAT(adm_users.nombre, " ", adm_users.p_apellido, " ", adm_users.s_apellido) as nombre_completo'), 'adm_users.celular', DB::raw('ifnull(adm_grupos.nombre_grupo, "Sudo") as perfil'), 'adm_users.p_apellido', 'adm_users.s_apellido', 'adm_users.nombre', 'adm_users.id_departamento', DB::raw('ifnull(adm_grupos.id, "null") as id_grupo'))
-				->leftJoin('cat_departamentos', 'adm_users.id_departamento', '=', 'cat_departamentos.id')
+				->select('adm_users.id', 'adm_users.username', 'adm_users.email', 'adm_users.estatus',  DB::raw('CONCAT(adm_users.nombre, " ", adm_users.p_apellido, " ", adm_users.s_apellido) as nombre_completo'), 'adm_users.celular', DB::raw('ifnull(adm_grupos.nombre_grupo, "Sudo") as perfil'), 'adm_users.p_apellido', 'adm_users.s_apellido', 'adm_users.nombre',  DB::raw('ifnull(adm_grupos.id, "null") as id_grupo'))
 				->leftJoin('adm_rel_user_grupo', 'adm_users.id', '=', 'adm_rel_user_grupo.id_usuario')
 				->leftJoin('adm_grupos', 'adm_rel_user_grupo.id_grupo', '=', 'adm_grupos.id')
 				->where('adm_users.deleted_at', '=', null);
@@ -56,10 +54,10 @@ class UsuarioController extends Controller
 		return response()->json($result, 200);
 	}
 
-	//Select Departamento
+/* 	//Select Departamento
 	public function getDepartamentos() {
 		return CatDepartamentos::all();
-	}
+	} */
 	//Inserta Usuario
 	public function postStore(Request $request){
 		Controller::check_permission('postUsuarios');
