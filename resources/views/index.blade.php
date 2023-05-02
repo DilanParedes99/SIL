@@ -10,7 +10,7 @@ SEDJ
 
 @section('main-content')
 <div class="superbox col-sm-10 col-sm-offset-1" id="panel-sistemas">
-	
+
 </div>
 @stop
 

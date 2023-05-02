@@ -19,16 +19,18 @@ Route::group(['middleware' => ['web', 'XSS']], function() {
 	Route::get('/', function () {
    	 	if((Auth::check())){
    	 		Session(['sistema' => 1]);
-   	 		return view('index');
+   	 		return view('administracion.index');
    	 	}else {
    	 		return view('auth.login');
    	 	}
 	});
+
 	Route::group(['middleware' => 'auth'], function() {
 		Route::get('/sistemas', function () {
 			Session(['sistema' => 1]);
-			return view('sistema.index');
+			return view('administracion.index');
 		});
+
 		Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 		Route::get('/inicio', function() { return view('inicio'); });
